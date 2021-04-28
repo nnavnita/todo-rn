@@ -8,6 +8,9 @@ export default function App() {
   const [todoItems, setTodoItems] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
   const addItemHandler = (itemTitle) => {
+    if(itemTitle.length === 0) {
+      return;
+    }
     setTodoItems(todoItems => [...todoItems, {id: Math.random().toString(), value: itemTitle}]);
     setIsAddMode(false);
   }
